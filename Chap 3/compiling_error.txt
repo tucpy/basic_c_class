@@ -1,0 +1,4 @@
+/Users/tp10/Sanger_work/Developer101/basic_c_class/Chap 3/bai3_10.cpp:2:9: fatal error: '<curses.h' file not found
+#include<<curses.h>
+        ^
+1 error generated.
