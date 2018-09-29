@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include<conio.h>
+//#include<conio.h>
 
 int main(void)
 {
@@ -7,7 +7,7 @@ int main(void)
 	do
 	{
 		printf("Nhap n: ");
-		scanf_s("%d", &n);
+		scanf("%d", &n);
 	} while (n < 0);
 
 	//printf("n: %d", n);
@@ -30,6 +30,6 @@ int main(void)
 		}
 // sai
 	}
-	_getch();
+	//_getch();
 
 }
