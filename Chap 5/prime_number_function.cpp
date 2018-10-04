@@ -105,7 +105,7 @@ void InSNTNhoHonN(int n)
 */
 
 // Xac dinh so nguyen to hay ko?
-
+/*
 bool primenumber(int n);
 bool khoang_5_25(int n);
 int NhapN2(int n);
@@ -177,4 +177,56 @@ int NhapN2(int n)
 	while (!((n >= 10) && (n <= 50)));
 	//while (!((n>=5) && (n<=25) && (primenumber(n)==1));
 	return n;
+}
+*/
+
+// Tim SNT lon nhat nho hon n
+
+int NhapN2(int n);
+void InSNTlonnhatNhoHonN(int n);
+
+void main()
+{
+	int n = 0; //pahi khoi tao n = gia tri bat ki vi VS 2015 bao loi
+	n = NhapN2(n);
+	InSNTlonnhatNhoHonN(n);
+
+	_getch();
+}
+
+int NhapN2(int n)
+{
+	do
+	{
+		printf("Nhap n (10-50): ");
+		scanf_s("%d", &n);
+		if (!((n >= 10) && (n <= 50)))
+		{
+			printf("Chi nhap so tu 10 den 50\n");
+		}
+	}
+	//while (n < 10 || n > 50);
+	while (!((n >= 10) && (n <= 50)));
+	return n;
+}
+
+
+void InSNTlonnhatNhoHonN(int n)
+{
+	int i, j;
+	for (i = n; i > 2; i--)
+	{
+		int count = 0;
+		for (j = 1; j <= i; j++)
+		{
+			if (i % j == 0)
+				count++;
+		}
+		if (count == 2)
+		{
+			printf("%d \t", i);
+			break;
+		}
+
+	}
 }
