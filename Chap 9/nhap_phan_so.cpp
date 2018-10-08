@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <math.h>
 
+
 typedef struct PHANSO
 {
 	int Tu;
