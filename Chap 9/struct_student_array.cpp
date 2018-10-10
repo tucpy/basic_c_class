@@ -15,6 +15,8 @@ struct DSSV{
     int n; //so sinh vien
     SinhVien arr[SIZE]; // Mang cac sinh vien
 };
+typedef struct SinhVien SinhVien;
+typedef struct DSSV DSSV;
 
 //Declare function
 void NhapSV(SinhVien *u);
@@ -30,9 +32,10 @@ void SapXep(DSSV *u);
 int main(void)
 {
     DSSV dssv;
+    SinhVien sv;
     SinhVien svnew;
     int diemmax;
-
+    fflush(stdin);
     printf("Nhap DSSV\n");
     NhapDSSV(&dssv); // ko cho nhap ma SV???
     printf("DSSV vua nhap\n");
@@ -41,7 +44,7 @@ int main(void)
     // Tim vi tri sv diem cao nhat
     diemmax = TimSVDiemMax(dssv);
     printf("SV thu %d co diem cao nhat\n", diemmax);
-
+    fflush(stdin);
     NhapSV(&svnew);
     Them(&dssv, 1, svnew);
     printf("DSSV cap nhat\n");
@@ -51,16 +54,24 @@ int main(void)
     printf("DSSV cap nhat\n");
     XuatDSSV(dssv);
 
+    SapXep(&dssv);
+    printf("DSSV theo thu tu MSSV\n");
+    XuatDSSV(dssv);
+
     return(0);
 }
+
 
 
 // Function
 void NhapSV(SinhVien *u)
 {
     float tam;
-    printf("Ma sinh vien:"); fflush(stdin); gets(u-> ma);
-    printf("Ho ten:"); gets(u -> ten);
+    //fflush(NULL);
+    //fflush(stdin); -> flush output not input
+    while (getchar() != '\n');// cant use fflush(stdin) or fflushall()
+    printf("Ma sinh vien:");fgets(u-> ma, sizeof(u -> ma), stdin); //gets(u-> ma); never use gets as it is unsafe, use fgets(var, sizeof(var),stdin)
+    printf("Ho ten:"); fgets(u -> ten, sizeof(u -> ten), stdin);//gets(u -> ten); 
     printf("Nam sinh:"); scanf("%d", &u-> namsinh);
     printf("Diem:"); scanf("%f", &tam); u->diem = tam;
     //for float value like "diem", you cant use &diem to get adress so need to use a temp variable
@@ -78,10 +89,10 @@ void NhapDSSV(DSSV *u){
         if (u->n < 1 || u->n > SIZE)
         printf("So SV ko hop le, xin nhap lai!\n"); 
     } while (u->n < 1 || u->n > SIZE); 
-    
+
     for(int i = 0; i < u->n; i++){
         printf("** Sinh vien thu %d **\n", i);
-        NhapSV(&u -> arr[i]);
+        NhapSV(&u->arr[i]);
     } 
 }
 
